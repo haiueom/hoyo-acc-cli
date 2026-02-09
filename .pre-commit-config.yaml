@@ -1,0 +1,19 @@
+# .pre-commit-config.yaml
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    # Ruff version. Pastikan update rev ini secara berkala
+    rev: v0.3.4
+    hooks:
+      # Jalankan linter
+      - id: ruff
+        args: [ --fix ]
+      # Jalankan formatter
+      - id: ruff-format

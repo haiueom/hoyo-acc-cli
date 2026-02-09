@@ -1,0 +1,19 @@
+# .github/dependabot.yml
+version: 2
+updates:
+  # Maintain dependencies for Python (pip/uv via pyproject.toml)
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    groups:
+      # Grouping update agar tidak spam PR
+      dependencies:
+        patterns:
+          - "*"
+
+  # Maintain dependencies for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
