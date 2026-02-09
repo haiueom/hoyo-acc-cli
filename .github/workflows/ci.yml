@@ -35,4 +35,4 @@ jobs:
 
       # Opsional: Coba build exe untuk memastikan tidak ada error saat packaging
       - name: Test Build Executable
-        run: uv run pyinstaller --onefile --collect-all rich --name hoyo-cli-test client.py
+        run: uv run pyinstaller --onefile --collect-all rich --name hoyo-cli-test main.py
