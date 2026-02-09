@@ -102,9 +102,7 @@ class HoyoClient:
 CANCEL_SIGNAL = "__CANCEL__"
 
 
-def ask_input(
-    label: str, required: bool = True, is_number: bool = False
-) -> str | int | None:
+def ask_input(label: str, required: bool = True, is_number: bool = False) -> str | int | None:
     """
     Helper custom untuk input dengan fitur Cancel (0) dan validasi.
     Mengembalikan CANCEL_SIGNAL jika user mengetik 0.
@@ -174,11 +172,7 @@ def display_account_detail(acc: Account):
     updated_val = acc.updated_at if acc.updated_at else "[dim]-[/dim]"
     table.add_row("Updated At", updated_val)
 
-    console.print(
-        Panel(
-            table, title=f"Detail Akun: {acc.name}", border_style="blue", expand=False
-        )
-    )
+    console.print(Panel(table, title=f"Detail Akun: {acc.name}", border_style="blue", expand=False))
 
 
 def show_menu():
@@ -214,9 +208,7 @@ def action_detail(client: HoyoClient):
             acc = client.get_account_by_id(db_id)
         display_account_detail(acc)
     except Exception:
-        console.print(
-            "[bold red]Gagal:[/bold red] Akun tidak ditemukan atau error server."
-        )
+        console.print("[bold red]Gagal:[/bold red] Akun tidak ditemukan atau error server.")
 
 
 def action_create(client: HoyoClient):
@@ -254,9 +246,7 @@ def action_update(client: HoyoClient):
     if db_id == CANCEL_SIGNAL:
         return
 
-    console.print(
-        "[dim]Tekan Enter (kosongkan) jika tidak ingin mengubah data tersebut[/dim]"
-    )
+    console.print("[dim]Tekan Enter (kosongkan) jika tidak ingin mengubah data tersebut[/dim]")
 
     # Input Optional (required=False)
     new_name = ask_input("Nama Baru", required=False)
@@ -280,9 +270,7 @@ def action_update(client: HoyoClient):
             updated = client.update_account(
                 db_id, name=new_name, cookie_token=new_cookie, account_id=new_acc_id
             )
-        console.print(
-            f"[bold green]Sukses![/bold green] Data {updated.name} berhasil diperbarui."
-        )
+        console.print(f"[bold green]Sukses![/bold green] Data {updated.name} berhasil diperbarui.")
         display_account_detail(updated)
     except Exception as e:
         console.print(f"[bold red]Gagal:[/bold red] {e}")
@@ -300,9 +288,7 @@ def action_delete(client: HoyoClient):
         try:
             with console.status("[bold red]Deleting...[/bold red]"):
                 client.delete_account(db_id)
-            console.print(
-                f"[bold green]Sukses![/bold green] Akun ID {db_id} telah dihapus."
-            )
+            console.print(f"[bold green]Sukses![/bold green] Akun ID {db_id} telah dihapus.")
         except Exception as e:
             console.print(f"[bold red]Gagal:[/bold red] {e}")
 
@@ -324,9 +310,7 @@ if __name__ == "__main__":
 
     while True:
         show_menu()
-        choice = Prompt.ask(
-            "Pilih menu", choices=["1", "2", "3", "4", "5", "0"], default="1"
-        )
+        choice = Prompt.ask("Pilih menu", choices=["1", "2", "3", "4", "5", "0"], default="1")
         print()
 
         try:

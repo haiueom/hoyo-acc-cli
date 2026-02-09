@@ -22,7 +22,7 @@ dev = [
 
 [tool.ruff]
 # Target versi Python (sesuaikan dengan environment Anda)
-target-version = "py313"
+target-version = "py312"
 line-length = 100
 
 [tool.ruff.lint]
