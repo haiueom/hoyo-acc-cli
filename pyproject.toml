@@ -7,15 +7,15 @@ requires-python = ">=3.13"
 dependencies = [
     "httpx>=0.28.1",
     "pydantic>=2.12.5",
-    "python-dotenv>=1.2.1",
-    "rich>=14.3.2",
+    "python-dotenv>=1.2.2",
+    "rich>=15.0.0",
 ]
 
 [dependency-groups]
 dev = [
     "pre-commit>=4.5.1",
-    "pyinstaller>=6.18.0",
-    "ruff>=0.15.0",
+    "pyinstaller>=6.19.0",
+    "ruff>=0.15.10",
 ]
 
 # pyproject.toml
